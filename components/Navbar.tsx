@@ -151,9 +151,31 @@ export default function Navbar({ isLoggedIn = false, onNavigate }: NavbarProps) 
         ))}
       </ul>
       
-      <div className="relative w-16 h-16 flex items-center justify-center gap-1">
-        <div className="text-2xl animate-float delay-300 drop-shadow-md">🎨</div>
-        <div className="text-2xl animate-float delay-500 drop-shadow-md">⭐</div>
+      <div className="flex items-center gap-3">
+        <div className="relative w-16 h-16 flex items-center justify-center gap-1">
+          <div className="text-2xl animate-float delay-300 drop-shadow-md">🎨</div>
+          <div className="text-2xl animate-float delay-500 drop-shadow-md">⭐</div>
+        </div>
+        <div className="flex gap-2">
+          <a 
+            href="https://github.com/muhammad-anas35/muhammad-anas35" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-accent transition-colors"
+            aria-label="GitHub"
+          >
+            <i className="fab fa-github text-xl"></i>
+          </a>
+          <a 
+            href="https://x.com/muhammad_anas35" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-accent transition-colors"
+            aria-label="Twitter"
+          >
+            <i className="fab fa-x-twitter text-xl"></i>
+          </a>
+        </div>
       </div>
     </nav>
   )

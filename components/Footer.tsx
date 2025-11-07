@@ -36,14 +36,21 @@ export default function Footer() {
           <div>
             <h4 className="text-accent text-base font-semibold mb-3">Connect With Us</h4>
             <div className="flex gap-4">
-              {['facebook-f', 'twitter', 'instagram', 'linkedin-in'].map((icon) => (
+              {[
+                { icon: 'github', url: 'https://github.com/muhammad-anas35/muhammad-anas35', label: 'GitHub' },
+                { icon: 'facebook-f', url: 'https://www.facebook.com/Runingtech/', label: 'Facebook' },
+                { icon: 'linkedin-in', url: 'https://www.linkedin.com/in/muhammad-anas35/', label: 'LinkedIn' },
+                { icon: 'x-twitter', url: 'https://x.com/muhammad_anas35', label: 'Twitter' }
+              ].map((social) => (
                 <a
-                  key={icon}
-                  href="https://www.linkedin.com/in/muhammad-anas35/"
+                  key={social.icon}
+                  href={social.url}
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-primary transition-all duration-300 hover:scale-110"
-                  aria-label={icon}
+                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <i className={`fab fa-${icon}`}></i>
+                  <i className={`fab fa-${social.icon}`}></i>
                 </a>
               ))}
             </div>
@@ -54,7 +61,7 @@ export default function Footer() {
           <div className="flex gap-2 items-center">
             {['Privacy', 'Terms', 'Cookies'].map((item, idx) => (
               <span key={item} className="flex items-center gap-2">
-                <a href="https://github.com/muhammad-anas35/muhammad-anas35" className="hover:text-accent transition-colors">{item}</a>
+                <a href="#" className="hover:text-accent transition-colors">{item}</a>
                 {idx < 2 && <span>•</span>}
               </span>
             ))}
