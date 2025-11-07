@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Fun</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-decoration-left">
+            <div class="floating-emoji">🎮</div>
+            <div class="floating-emoji delay-1">🎲</div>
+        </div>
+        <div class="navbar-brand">
+            <span class="brand-icon">🎯</span>
+            <span class="brand-text">
+                <span class="letter-bounce">F</span>
+                <span class="letter-bounce delay-1">u</span>
+                <span class="letter-bounce delay-2">n</span>
+                <span class="brand-space"> </span>
+                <span class="letter-bounce delay-3">C</span>
+                <span class="letter-bounce delay-4">l</span>
+                <span class="letter-bounce delay-5">u</span>
+                <span class="letter-bounce delay-6">b</span>
+                <span class="brand-exclamation">!</span>
+            </span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="#" class="nav-link-fun"><i class="fas fa-home"></i> <span>Home</span></a></li>
+            <li><a href="#" class="nav-link-fun"><i class="fas fa-gamepad"></i> <span>Games</span></a></li>
+            <li><a href="#" class="nav-link-fun"><i class="fas fa-trophy"></i> <span>Leaderboard</span></a></li>
+            <li><a href="#" class="nav-link-fun"><i class="fas fa-user"></i> <span>Profile</span></a></li>
+        </ul>
+        <div class="navbar-decoration-right">
+            <div class="floating-emoji delay-2">🎨</div>
+            <div class="floating-emoji delay-3">⭐</div>
+        </div>
+    </nav>
+    <div class="container" id="auth-container">
+        <div class="form-container" id="login-form">
+            <h1>Welcome Back!</h1>
+            <div class="message" id="login-message"></div>
+            <form id="login">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Your Password" required>
+                </div>
+                <button type="submit">Let's Go!</button>
+            </form>
+            <p>No account yet? <a href="#" id="signup-link">Join the fun!</a></p>
+        </div>
+        <div class="form-container" id="signup-form" style="display: none;">
+            <h1>Join the Fun!</h1>
+            <div class="message" id="signup-message"></div>
+            <form id="signup">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signup-username" placeholder="Choose a Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signup-email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-password" placeholder="Create a Password" required>
+                </div>
+                <button type="submit">Sign Me Up!</button>
+            </form>
+            <p>Already have an account? <a href="#" id="login-link">Log in!</a></p>
+        </div>
+        <!-- <button id="download-db">Download Friends List</button>     -->
+    </div>
+
+    <!-- Landing Page -->
+    <div class="landing-page" id="landing-page" style="display: none;">
+        <div class="landing-hero">
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome back, <span id="username-display">Player</span>!</h1>
+                <p class="welcome-subtitle">Ready to continue your gaming adventure?</p>
+            </div>
+        </div>
+
+        <div class="landing-content">
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-games">0</h3>
+                        <p>Games Played</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-achievements">0</h3>
+                        <p>Achievements</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-fire"></i></div>
+                    <div class="stat-info">
+                        <h3 id="stat-streak">0</h3>
+                        <p>Day Streak</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-grid">
+                    <div class="action-card" data-game="snake-ladder">
+                        <div class="action-icon"><i class="fas fa-dice"></i></div>
+                        <h3>Snake & Ladder</h3>
+                        <p>Classic board game fun!</p>
+                        <button class="action-btn" data-action="play-game">Play Now</button>
+                    </div>
+                    <div class="action-card" data-game="puzzle">
+                        <div class="action-icon"><i class="fas fa-puzzle-piece"></i></div>
+                        <h3>Number Puzzle</h3>
+                        <p>Challenge your mind!</p>
+                        <button class="action-btn" data-action="puzzle-games">Play Now</button>
+                    </div>
+                    <div class="action-card" data-game="tictactoe">
+                        <div class="action-icon"><i class="fas fa-times"></i></div>
+                        <h3>Tic-Tac-Toe</h3>
+                        <p>Classic X and O game!</p>
+                        <button class="action-btn" data-action="tictactoe">Play Now</button>
+                    </div>
+                    <div class="action-card" data-game="memory">
+                        <div class="action-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Memory Match</h3>
+                        <p>Test your memory!</p>
+                        <button class="action-btn" data-action="memory-game">Play Now</button>
+                    </div>
+                    <div class="action-card" data-game="rps">
+                        <div class="action-icon"><i class="fas fa-hand-rock"></i></div>
+                        <h3>Rock Paper Scissors</h3>
+                        <p>Quick fun game!</p>
+                        <button class="action-btn" data-action="rock-paper-scissors">Play Now</button>
+                    </div>
+                    <div class="action-card" data-game="quiz">
+                        <div class="action-icon"><i class="fas fa-question-circle"></i></div>
+                        <h3>Trivia Quiz</h3>
+                        <p>Test your knowledge!</p>
+                        <button class="action-btn" data-action="quiz-game">Play Now</button>
+                    </div>
+                    <div class="action-card" data-game="settings">
+                        <div class="action-icon"><i class="fas fa-cog"></i></div>
+                        <h3>Game History</h3>
+                        <p>View your game stats</p>
+                        <button class="action-btn" data-action="game-history">View Stats</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list" id="activity-list">
+                    <div class="activity-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="activity-content">
+                            <p><strong>Welcome to Fun Club Games!</strong></p>
+                            <span class="activity-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-footer-actions">
+            <button class="logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Modals -->
+    <!-- Snake & Ladder Game Modal -->
+    <div class="game-modal" id="snake-ladder-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>🎲 Snake & Ladder</h2>
+                <button class="close-game-btn" onclick="closeGame('snake-ladder-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="snake-ladder-game">
+                    <div class="game-info">
+                        <div class="player-position">
+                            <p>Your Position: <span id="player-position">1</span>/100</p>
+                        </div>
+                        <div class="dice-container">
+                            <div class="dice" id="dice">
+                                <div class="dice-face" id="dice-face">🎲</div>
+                            </div>
+                            <button class="roll-dice-btn" id="roll-dice-btn">Roll Dice</button>
+                        </div>
+                        <div class="game-status" id="game-status">Ready to play! Roll the dice to start.</div>
+                    </div>
+                    <div class="game-board">
+                        <div class="board-grid" id="board-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Puzzle Game Modal -->
+    <div class="game-modal" id="puzzle-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>🧩 Number Puzzle</h2>
+                <button class="close-game-btn" onclick="closeGame('puzzle-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="puzzle-game">
+                    <div class="puzzle-info">
+                        <p>Moves: <span id="puzzle-moves">0</span></p>
+                        <button class="reset-puzzle-btn" id="reset-puzzle-btn">Reset</button>
+                    </div>
+                    <div class="puzzle-grid" id="puzzle-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tic-Tac-Toe Game Modal -->
+    <div class="game-modal" id="tictactoe-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>❌ Tic-Tac-Toe</h2>
+                <button class="close-game-btn" onclick="closeGame('tictactoe-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="tictactoe-game">
+                    <div class="game-score">
+                        <div class="score-item">
+                            <span class="player-mark">❌</span>
+                            <span>You: <span id="player-score">0</span></span>
+                        </div>
+                        <div class="score-item">
+                            <span class="player-mark">⭕</span>
+                            <span>Computer: <span id="computer-score">0</span></span>
+                        </div>
+                    </div>
+                    <div class="current-player" id="current-player">Your turn (❌)</div>
+                    <div class="tictactoe-grid" id="tictactoe-grid"></div>
+                    <button class="reset-game-btn" id="reset-tictactoe-btn">New Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memory Game Modal -->
+    <div class="game-modal" id="memory-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>🧠 Memory Match</h2>
+                <button class="close-game-btn" onclick="closeGame('memory-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="memory-game">
+                    <div class="memory-info">
+                        <p>Moves: <span id="memory-moves">0</span></p>
+                        <p>Pairs Found: <span id="memory-pairs">0</span>/8</p>
+                        <button class="reset-game-btn" id="reset-memory-btn">New Game</button>
+                    </div>
+                    <div class="memory-grid" id="memory-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rock Paper Scissors Game Modal -->
+    <div class="game-modal" id="rps-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>✂️ Rock Paper Scissors</h2>
+                <button class="close-game-btn" onclick="closeGame('rps-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="rps-game">
+                    <div class="rps-score">
+                        <div class="score-item">
+                            <span>You: <span id="rps-player-score">0</span></span>
+                        </div>
+                        <div class="score-item">
+                            <span>Computer: <span id="rps-computer-score">0</span></span>
+                        </div>
+                    </div>
+                    <div class="rps-choices">
+                        <div class="rps-choice" data-choice="rock">🪨 Rock</div>
+                        <div class="rps-choice" data-choice="paper">📄 Paper</div>
+                        <div class="rps-choice" data-choice="scissors">✂️ Scissors</div>
+                    </div>
+                    <div class="rps-result">
+                        <div class="rps-display">
+                            <div class="rps-player-choice" id="rps-player-choice">?</div>
+                            <div class="rps-vs">VS</div>
+                            <div class="rps-computer-choice" id="rps-computer-choice">?</div>
+                        </div>
+                        <div class="rps-winner" id="rps-winner">Choose your weapon!</div>
+                    </div>
+                    <button class="reset-game-btn" id="reset-rps-btn">Reset Score</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Game Modal -->
+    <div class="game-modal" id="quiz-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>❓ Trivia Quiz</h2>
+                <button class="close-game-btn" onclick="closeGame('quiz-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="quiz-game">
+                    <div class="quiz-info">
+                        <p>Question <span id="quiz-current">1</span>/<span id="quiz-total">5</span></p>
+                        <p>Score: <span id="quiz-score">0</span>/<span id="quiz-total-score">5</span></p>
+                    </div>
+                    <div class="quiz-question" id="quiz-question"></div>
+                    <div class="quiz-options" id="quiz-options"></div>
+                    <div class="quiz-result" id="quiz-result"></div>
+                    <button class="next-quiz-btn" id="next-quiz-btn" style="display: none;">Next Question</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game History Modal -->
+    <div class="game-modal" id="history-modal" style="display: none;">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2>📊 Game History</h2>
+                <button class="close-game-btn" onclick="closeGame('history-modal')">&times;</button>
+            </div>
+            <div class="game-modal-body">
+                <div class="game-history">
+                    <div class="history-stats" id="history-stats"></div>
+                    <div class="history-list" id="history-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>Fun Club Games</h3>
+                    <p>Making learning fun through interactive gameplay</p>
+                </div>
+                <div class="footer-section footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                        <li><a href="#">Parent Resources</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/muhammad-anas35/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/muhammad_anas35" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/muhammad_anas35/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Runingtech/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fun Club Games. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="https://github.com/muhammad-anas35/muhammad-anas35">Privacy</a>
+                    <span>•</span>
+                    <a href="https://github.com/muhammad-anas35/muhammad-anas35">Terms</a>
+                    <span>•</span>
+                    <a href="https://github.com/muhammad-anas35/muhammad-anas35">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply min-h-screen bg-gradient-to-br from-background via-background-light to-amber-50 bg-[length:400%_400%] pt-20 flex flex-col relative overflow-x-hidden;
+    animation: backgroundShift 15s ease infinite;
+  }
+  
+  body::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(222, 152, 67, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 107, 157, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(255, 217, 61, 0.1) 0%, transparent 50%);
+    animation: floatBackground 20s ease-in-out infinite;
+  }
+  
+  body::after {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-0;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(222, 152, 67, 0.03) 35px, rgba(222, 152, 67, 0.03) 70px),
+      repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255, 107, 157, 0.03) 35px, rgba(255, 107, 157, 0.03) 70px);
+    animation: patternMove 30s linear infinite;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    @apply bg-white/95 backdrop-blur-lg;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary-dark to-secondary bg-[length:300%_300%] bg-clip-text text-transparent;
+    animation: titleGradient 5s ease infinite;
+  }
+  
+  .board-cell {
+    @apply aspect-square bg-gradient-to-br from-background-light to-white border-2 border-primary/20 rounded-lg;
+  }
+  
+  .confetti {
+    @apply fixed z-[9999] rounded-full;
+    animation: confettiFall 3s linear forwards;
+  }
+}
+
+@keyframes backgroundShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes floatBackground {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+  33% { transform: translate(30px, -30px) scale(1.1); opacity: 0.8; }
+  66% { transform: translate(-20px, 20px) scale(0.9); opacity: 0.9; }
+}
+
+@keyframes patternMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(70px, 70px); }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
